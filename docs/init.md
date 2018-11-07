@@ -25,15 +25,30 @@
 mkdir -p /opt/kubernetes/{cfg,bin,ssl,log}
 ```
 ```
-vim ~/.bash_profile
+[root@linux-node1 ~]# cat .bash_profile
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
 PATH=$PATH:$HOME/bin:/opt/kubernetes/bin
-source ~/.bash_profile
+
+export PATH
 ```
 
 ## 3.准备软件包
 ```
-百度网盘下载地址：
-[https://pan.baidu.com/s/1zs8sCouDeCQJ9lghH1BPiw](https://pan.baidu.com/s/1zs8sCouDeCQJ9lghH1BPiw)
+https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.10.md
+
+cd /usr/local/src
+wget https://dl.k8s.io/v1.10.9/kubernetes.tar.gz
+wget https://dl.k8s.io/v1.10.9/kubernetes-client-linux-amd64.tar.gz
+wget https://dl.k8s.io/v1.10.9/kubernetes-server-linux-amd64.tar.gz
+wget https://dl.k8s.io/v1.10.9/kubernetes-node-linux-amd64.tar.gz
 ```
 
 ## 4.解压软件包
