@@ -2,11 +2,11 @@
 - SaltStack自动化部署Kubernetes v1.10.3版本（支持TLS双向认证、RBAC授权、Flannel网络、ETCD集群、Kuber-Proxy使用LVS等）。
 
 ## 版本明细：Release-v1.10.3
-- 测试通过系统：CentOS 7.4
+- 测试通过系统：CentOS Linux release 7.5.1804 (Core)
 - salt-ssh:     2017.7.4
-- Kubernetes：  v1.10.3
-- Etcd:         v3.3.1
-- Docker:       17.12.1-ce
+- Kubernetes：  v1.10.9
+- Etcd:         v3.2.18
+- Docker:       18.06.1-ce
 - Flannel：     v0.10.0
 - CNI-Plugins： v0.7.0
 建议部署节点：最少三个节点，请配置好主机名解析（必备）
