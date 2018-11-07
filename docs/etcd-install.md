@@ -113,22 +113,30 @@ Type=notify
 WantedBy=multi-user.target
 ```
 
+## 6.配置其他节点
+```
+scp /opt/kubernetes/cfg/etcd.conf 192.168.56.12:/opt/kubernetes/cfg/
+scp /opt/kubernetes/cfg/etcd.conf 192.168.56.13:/opt/kubernetes/cfg/
+
+scp /etc/systemd/system/etcd.service 192.168.56.12:/etc/systemd/system/
+scp /etc/systemd/system/etcd.service 192.168.56.13:/etc/systemd/system/
+
+修改 /opt/kubernetes/cfg/etcd.conf 中IP
+除了 ETCD_INITIAL_CLUSTER 配置项，其他的192.168.56.11全部修改为本机IP如：192.168.56.12
+
+```
+
 ## 6.重新加载系统服务
 ```
+在所有节点执行
 [root@linux-node1 ~]# systemctl daemon-reload
 [root@linux-node1 ~]# systemctl enable etcd
-
-
-# scp /opt/kubernetes/cfg/etcd.conf 192.168.56.12:/opt/kubernetes/cfg/
-# scp /etc/systemd/system/etcd.service 192.168.56.12:/etc/systemd/system/
-# scp /opt/kubernetes/cfg/etcd.conf 192.168.56.13:/opt/kubernetes/cfg/
-# scp /etc/systemd/system/etcd.service 192.168.56.13:/etc/systemd/system/
 在所有节点上创建etcd存储目录并启动etcd
 [root@linux-node1 ~]# mkdir /var/lib/etcd
 [root@linux-node1 ~]# systemctl start etcd
 [root@linux-node1 ~]# systemctl status etcd
 ```
-下面需要大家在所有的 etcd 节点重复上面的步骤，直到所有机器的 etcd 服务都已启动。
+
 
 ## 7.验证集群
 ```
