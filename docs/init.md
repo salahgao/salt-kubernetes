@@ -22,7 +22,12 @@
 
 ## 2.准备部署目录
 ```
-    mkdir -p /opt/kubernetes/{cfg,bin,ssl,log}
+mkdir -p /opt/kubernetes/{cfg,bin,ssl,log}
+```
+```
+vim ~/.bash_profile
+PATH=$PATH:$HOME/bin:/opt/kubernetes/bin
+source ~/.bash_profile
 ```
 
 ## 3.准备软件包
