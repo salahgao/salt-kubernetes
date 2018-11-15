@@ -9,13 +9,8 @@
 2.初始化Helm并部署Tiller服务端
 ```
 [root@linux-node1 ~]# 
-#helm init --upgrade --tiller-image \
-#    registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.9.1 \
-#    --stable-repo-url https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
-
 helm init --upgrade --tiller-image registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.11.0 \
---stable-repo-url https://aliacs-app-catalog.oss-cn-hangzhou.aliyuncs.com/charts/
-
+	--stable-repo-url https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
 ```
 
 3.所有节点安装socat命令
